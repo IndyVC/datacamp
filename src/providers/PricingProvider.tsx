@@ -93,7 +93,7 @@ export const PricingProvider: FC<{ children: any }> = ({ children }) => {
     },
     {
       title: "Enterprise",
-      description: "Besproke solutions",
+      description: "Bespoke solutions",
       price: {
         month: 0,
         year: 0,
