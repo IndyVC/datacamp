@@ -19,11 +19,10 @@ const Card: FC<CardProps> = ({
   isFirst,
   isLast,
 }) => {
-  console.log({ isFirst, isLast });
   return (
     <div
       className={cl(
-        "bg-white h-full rounded lg:rounded-none flex flex-col relative",
+        "bg-white text-dark h-full rounded lg:rounded-none flex flex-col relative",
         { "rounded-l": isFirst, "rounded-r": isLast }
       )}
     >
