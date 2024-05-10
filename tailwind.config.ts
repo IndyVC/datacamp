@@ -11,15 +11,15 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      white: "#FFF",
       accent: {
         green: "#53EF62",
         orange: "#F65403",
         blue: "#2D9BD8",
+        gray: "#D9D9E1",
+        yellow: "#fcba03",
       },
-      primary: {
-        500: "#D9D9E1",
-        900: "#05192D",
-      },
+      dark: "#05192D",
     },
     extend: {
       backgroundImage: {
