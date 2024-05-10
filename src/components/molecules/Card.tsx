@@ -38,7 +38,7 @@ const Card: FC<CardProps> = ({ pricing, isFirst, isLast }) => {
           "z-10": isMostPopular,
           "border-t-8": isMostPopular,
           "border-accent-green": isMostPopular,
-          "scale-[1.02]": isMostPopular,
+          "lg:scale-[1.02]": isMostPopular,
           "border-l-[1px]": isLast,
         }
       )}
