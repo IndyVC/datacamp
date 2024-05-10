@@ -5,6 +5,7 @@ import { cl } from "dynamic-class-list";
 import Chip from "../atoms/Chip";
 import Button from "../atoms/Button";
 import Description from "./Description";
+import Tag from "../atoms/Tag";
 
 interface CardProps {
   pricing: Pricing;
@@ -13,27 +14,50 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ pricing, isFirst, isLast }) => {
+  const {
+    title,
+    titleColor,
+    isMostPopular,
+    hasChip,
+    description,
+    descriptions,
+    buttonText,
+    buttonType,
+    suffix,
+    prefix,
+  } = pricing;
   return (
     <div
       className={cl(
         "bg-white text-dark h-full rounded lg:rounded-none flex flex-col relative",
-        { "rounded-l": isFirst, "rounded-r": isLast }
+        {
+          "rounded-l": isFirst,
+          "rounded-r": isLast,
+          rounded: isMostPopular,
+          "shadow-2xl": isMostPopular,
+          "z-10": isMostPopular,
+          "border-t-8": isMostPopular,
+          "border-accent-green": isMostPopular,
+          "scale-[1.02]": isMostPopular,
+          "border-l-[1px]": isLast,
+        }
       )}
     >
-      <div className="p-8">
-        <h2 className={`font-bold text-lg text-accent-${pricing.titleColor}`}>
-          {pricing.title}
+      <div className="p-8" data-is={isMostPopular}>
+        <h2 className={`font-bold text-lg text-accent-${titleColor}`}>
+          {title}
         </h2>
-        {pricing.hasChip ? <Chip text="Best Value" /> : null}
-        <span className="uppercase">{pricing.description}</span>
+        {isMostPopular ? <Tag /> : null}
+        {hasChip ? <Chip text="Best Value" /> : null}
+        <span className="uppercase">{description}</span>
       </div>
 
       <Banner pricing={pricing} />
-      <Button text={pricing.buttonText} type={pricing.buttonType} />
+      <Button text={buttonText} type={buttonType} />
       <Description
-        descriptions={pricing.descriptions}
-        suffix={pricing.suffix}
-        prefix={pricing.prefix}
+        descriptions={descriptions}
+        suffix={suffix}
+        prefix={prefix}
       />
     </div>
   );

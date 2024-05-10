@@ -11,6 +11,7 @@ export interface Pricing {
     month: number;
     year: number;
   };
+  isMostPopular?: boolean;
   titleColor: "orange" | "green" | "blue" | "dark";
   bannerOverride?: string;
   bannerPeriod?: string;

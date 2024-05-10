@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({ text, type }) => {
 
   return (
     <button
-      className={`mx-8 font-semibold rounded h-11 ${style} border-dark mt-8`}
+      className={`mx-8 font-semibold rounded h-11 ${style} border-dark mt-8 capitalize`}
     >
       {text}
     </button>

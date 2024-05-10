@@ -53,6 +53,7 @@ export const PricingProvider: FC<{ children: any }> = ({ children }) => {
         month: 42,
         year: 14,
       },
+      isMostPopular: true,
       titleColor: "green",
       bannerPeriod: "/month",
       buttonText: "Subscribe now",
