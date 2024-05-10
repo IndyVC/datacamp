@@ -4,11 +4,22 @@ import { ReactElement } from "react";
 export interface Pricing {
   title: string;
   description: string;
+  /**
+   * In USD by default
+   */
+  price: {
+    month: number;
+    year: number;
+  };
   titleColor: "orange" | "green" | "blue" | "dark";
-  Banner: ReactElement;
-  Button: ReactElement;
-  Description: ReactElement;
-  Chip?: ReactElement;
+  bannerOverride?: string;
+  bannerPeriod?: string;
+  buttonText: string;
+  buttonType: "default" | "primary";
+  descriptions: string[];
+  suffix?: ReactElement;
+  prefix?: ReactElement;
+  hasChip: boolean;
 }
 
 export enum Period {
@@ -21,3 +32,12 @@ export enum Currency {
   USD = "$",
   GBP = "£",
 }
+
+/**
+ * All relative to USD (USD value = 1)
+ */
+export type Exchange = {
+  currency: Currency;
+  exchange: string;
+  value: number;
+};

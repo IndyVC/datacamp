@@ -2,23 +2,17 @@ import { Period, Pricing } from "@/types";
 import React, { FC, ReactElement, ReactNode } from "react";
 import Banner from "./Banner";
 import { cl } from "dynamic-class-list";
+import Chip from "../atoms/Chip";
+import Button from "../atoms/Button";
+import Description from "./Description";
 
-interface CardProps extends Pricing {
+interface CardProps {
+  pricing: Pricing;
   isFirst: boolean;
   isLast: boolean;
 }
 
-const Card: FC<CardProps> = ({
-  title,
-  description,
-  titleColor,
-  Banner,
-  Button,
-  Description,
-  Chip,
-  isFirst,
-  isLast,
-}) => {
+const Card: FC<CardProps> = ({ pricing, isFirst, isLast }) => {
   return (
     <div
       className={cl(
@@ -27,16 +21,20 @@ const Card: FC<CardProps> = ({
       )}
     >
       <div className="p-8">
-        <h2 className={`font-bold text-lg text-accent-${titleColor}`}>
-          {title}
+        <h2 className={`font-bold text-lg text-accent-${pricing.titleColor}`}>
+          {pricing.title}
         </h2>
-        {Chip}
-        <span className="uppercase">{description}</span>
+        {pricing.hasChip ? <Chip text="Best Value" /> : null}
+        <span className="uppercase">{pricing.description}</span>
       </div>
 
-      {Banner}
-      {Button}
-      {Description}
+      <Banner pricing={pricing} />
+      <Button text={pricing.buttonText} type={pricing.buttonType} />
+      <Description
+        descriptions={pricing.descriptions}
+        suffix={pricing.suffix}
+        prefix={pricing.prefix}
+      />
     </div>
   );
 };

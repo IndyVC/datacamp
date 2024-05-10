@@ -6,7 +6,11 @@ interface DescriptionProps {
   suffix?: ReactElement;
   descriptions: string[];
 }
-const Descripton: FC<DescriptionProps> = ({ descriptions, prefix, suffix }) => {
+const Description: FC<DescriptionProps> = ({
+  descriptions,
+  prefix,
+  suffix,
+}) => {
   return (
     <div className="m-8">
       {prefix}
@@ -23,4 +27,4 @@ const Descripton: FC<DescriptionProps> = ({ descriptions, prefix, suffix }) => {
   );
 };
 
-export default Descripton;
+export default Description;
